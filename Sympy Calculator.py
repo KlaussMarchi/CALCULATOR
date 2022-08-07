@@ -26,6 +26,12 @@ def replaceList(string, listaPalavras, listaReplace):
 
     return string
 
+# ESCONDENDO O CONSOLE
+def hideTerminal():
+    import win32gui, win32con
+    the_program_to_hide = win32gui.GetForegroundWindow()
+    win32gui.ShowWindow(the_program_to_hide , win32con.SW_HIDE)
+
 def blockPrint():
     sys.stdout = open(os.devnull, 'w')
 
@@ -114,5 +120,7 @@ def Calculadora():
     root.bind("<Return>", action)
     root.mainloop()
 
+
+hideTerminal()
 Calculadora()
 
